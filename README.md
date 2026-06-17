@@ -48,6 +48,7 @@ Instead of relying on OpenAI Gym, this project uses a fully custom Connect 4 env
 * Training and evaluation workflows
 Play Against the AI
 
+### How to play!
 A pretrained model is included in this repository so you can immediately play against the current strongest Connect 4 agent without running any training.
 
 Included Model
