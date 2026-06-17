@@ -46,7 +46,42 @@ Instead of relying on OpenAI Gym, this project uses a fully custom Connect 4 env
 * Win/loss detection
 * Opponent interaction
 * Training and evaluation workflows
+Play Against the AI
 
+A pretrained model is included in this repository so you can immediately play against the current strongest Connect 4 agent without running any training.
+
+Included Model
+models/current_best_model.pth
+
+This checkpoint represents the strongest model available at the time of publishing and is used by the gameplay interface.
+
+Launch the Game
+
+Run:
+
+python play_game.py
+
+A Tkinter window will open where:
+
+Red pieces = Human Player
+Yellow pieces = AI Agent
+Click a column to place your piece
+The AI will automatically respond using the pretrained model
+Requirements
+
+Install the required dependencies:
+
+pip install torch numpy
+
+Tkinter is included with most standard Python installations.
+
+Notes
+
+The gameplay interface automatically loads:
+
+models/current_best_model.pth
+
+No additional training or configuration is required.
 ---
 
 ## Project Overview
