@@ -16,7 +16,7 @@ CELL_SIZE = 100
 PLAYER = 1
 AI = -1
 
-MODEL_PATH = "Saved_models/model_ep_15000.pth"
+MODEL_PATH = "models/current_best_model.pth"
 
 # =====================================
 # LOAD MODEL
