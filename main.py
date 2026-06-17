@@ -8,6 +8,7 @@ import os
 from Connect4Env import Connect4Env
 from DQN_Agent import DQNAgent
 from Connect4Game import Connect4
+import pandas as pd
 
 # =========================
 # Generic Evaluation
@@ -226,6 +227,8 @@ draw_rates = []
 
 heuristic_eval_episodes = []
 
+training_logs = []
+reward_window = []
 # =========================
 # Checkpoint pool
 # =========================
@@ -372,7 +375,8 @@ for episode in range(1, num_episodes + 1):
         
     # Reward Logging
     reward_history.append(total_reward)
-
+    reward_window.append(total_reward)
+    
     # =====================================================
     # SAVE CHECKPOINT
     # =====================================================
@@ -418,6 +422,9 @@ for episode in range(1, num_episodes + 1):
     # Evaluation
     # =========================
     if episode % EVAL_INTERVAL == 0:
+        avg_checkpoint_win = np.nan
+        avg_reward = np.mean(reward_window)
+        reward_window = []
 
         # Heuristic eval
         heuristic_results = evaluate_against_opponent(
@@ -503,3 +510,16 @@ for episode in range(1, num_episodes + 1):
         draw_rates.append(h_draw)
 
         heuristic_eval_episodes.append(episode)
+        
+        training_logs.append({
+
+        "episode": episode,
+        "epsilon": agent.epsilon,
+        "avg_reward": avg_reward,
+        "heuristic_win_rate": h_win,
+        "random_win_rate": r_win,
+        "avg_checkpoint_win_rate": avg_checkpoint_win,
+
+        })
+        
+training_df = pd.DataFrame(training_logs)
