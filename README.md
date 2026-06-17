@@ -13,6 +13,39 @@ This project explores reinforcement learning techniques for board-game AI, inclu
 * Reward Shaping
 
 The goal is to train an agent that can learn to play Connect 4 from experience and progressively improve against stronger opponents.
+## Software Stack
+
+This project is built entirely in Python and uses the PyTorch deep learning framework to train a Reinforcement Learning (RL) agent capable of playing Connect 4.
+
+### Core Technologies
+
+* **Python 3** – Primary programming language
+* **PyTorch** – Deep learning framework used to build and train the Deep Q-Network (DQN)
+* **NumPy** – Efficient numerical and array operations
+* **Tkinter** – Graphical User Interface (GUI) for playing against trained agents
+* **Matplotlib** *(optional for evaluation)* – Visualisation of training performance and evaluation metrics
+
+### Reinforcement Learning Components
+
+The project implements a custom RL training pipeline including:
+
+* Deep Q-Network (DQN)
+* Experience Replay Buffer
+* Epsilon-Greedy Exploration
+* Curriculum Learning
+* Self-Play Training
+* Convolutional Neural Network (CNN) State Encoder
+
+### Environment
+
+Instead of relying on OpenAI Gym, this project uses a fully custom Connect 4 environment built specifically for reinforcement learning experimentation. The environment handles:
+
+* State representation
+* Action validation
+* Reward calculation
+* Win/loss detection
+* Opponent interaction
+* Training and evaluation workflows
 
 ---
 
